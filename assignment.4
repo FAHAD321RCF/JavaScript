@@ -1,0 +1,97 @@
+// No.1
+function cashOut(money) {
+
+    if (typeof money !== 'number' || money <= 0) {
+
+        return "Invalid";
+
+    }
+
+    return money * 1.75 / 100;
+}
+
+// No.2
+
+function validEmail(email) {
+
+    if (typeof email !== 'string') {
+        return "Invalid";
+        
+    }
+    const invalid = /^[\.\-_+@]/.test(email);
+    
+    const contain = /\s/.test(email);
+
+    const valid = /@/.test(email) && email.endsWith('.com');
+
+    return !invalid && !contain && valid;
+}
+
+// No.3
+
+function electionResult(votes) {
+ 
+    if (!Array.isArray(votes)) {
+      return "Invalid";
+    }
+  
+    let mango = 0;
+    let banana = 0;
+  
+    for (const vote of votes) {
+      if (vote === "mango") {
+        mango++;
+      } else if (vote === "banana") {
+        banana++;
+      }
+    }
+  
+    if (mango > banana) {
+      return "Mango";
+    } else if (banana > mango) {
+      return "Banana";
+    } else {
+      return "Draw";
+    }
+  }
+
+// No.4
+
+function isBestFriend(f1, f2) {
+
+    if (typeof f1 !== 'object' || f1 === null || typeof f2 !== 'object' || f2 === null) {
+      return "Invalid";
+    }
+  
+    if (f1.bestFriend === f2.roll && f2.bestFriend === f1.roll) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+// No.5
+
+function calculateWatchTime(times) {
+   
+    if (!Array.isArray(times)) {
+        return "Invalid";
+    }
+
+    let totalSecond = 0;
+
+    for (let time of times) {
+        if (typeof time !== 'number') {
+            return "Invalid";
+        }
+        totalSecond += time;
+    }
+
+    const hours = Math.floor(totalSecond / 3600);
+    const minutes = Math.floor((totalSecond % 3600) / 60);
+    const seconds = totalSecond % 60;
+
+
+    return { hour: hours, minute: minutes, second: seconds };
+}
+
